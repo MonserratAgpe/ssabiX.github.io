@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Página de SabiX</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Century Gothic', sans-serif; /* Cambiado a Century Gothic */
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
+            padding: 3cm; /* Borde de 3 cm */
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; /* Evita que se desborde el contenido */
+        }
+
+        .header .fondo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra toda el área */
+        }
+
+        .content {
+            padding: 10px; /* Espacio para el contenido */
+            text-align: center;
+            margin-top: 100vh; /* Añadir margen superior para evitar superposición */
+        }
+
+        .eslogan-img {
+            width: 100%; /* Tamaño */
+            height: auto; /* Mantiene la relación de aspecto */
+            display: block; /* Para centrar la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+
+        .quienes-somos {
+            margin: 20px 0;
+            text-align: center; /* Centra el texto */
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+
+        .imagen-centrada {
+            width: 12cm; /* Ancho de la imagen */
+            height: auto; /* Mantiene la relación de aspecto */
+            display: block; /* Para centrar la imagen */
+            margin: 20px auto; /* Centra la imagen horizontalmente y agrega margen vertical */
+        }
+
+        .carrusel {
+            position: relative;
+            max-width: 100%; /* Ajusta el ancho del carrusel */
+            margin: 20px auto; /* Centra el carrusel */
+            overflow: hidden; /* Oculta el contenido que se sale */
+        }
+
+        .carrusel-imagen {
+            display: none; /* Oculta todas las imágenes por defecto */
+            justify-content: center; /* Centra las imágenes */
+        }
+
+        .carrusel-imagen img {
+            width: 100%; /* Ajusta el ancho de las imágenes */
+            height: auto; /* Mantiene la relación de aspecto */
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px; /* Posición del botón anterior */
+        }
+
+        .next {
+            right: 10px; /* Posición del botón siguiente */
+        }
+
+        .sectores-clave {
+            list-style-type: none; /* Elimina las viñetas */
+            padding: 0; /* Elimina el padding por defecto */
+            text-align: center; /* Centra el texto */
+            margin: 20px 0; /* Espaciado vertical */
+        }
+
+        .sectores-clave li {
+            margin: 5px 0; /* Espacio entre los elementos de la lista */
+        }
+
+        .productos {
+            margin: 40px 0;
+            background-color: #333; /* Color de fondo gris oscuro */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+
+        .productos-container {
+            display: flex; /* Usa flexbox para alinear los productos */
+            justify-content: space-around; /* Espaciado entre los productos */
+            flex-wrap: wrap; /* Permite que los productos se ajusten a la pantalla */
+        }
+
+        .producto {
+            background-color: #444; /* Color de fondo de cada producto */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 15px; /* Espaciado interno */
+            text-align: center;
+            width: 30%; /* Ancho de cada producto */
+            margin: 10px; /* Espacio entre los productos */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de profundidad */
+        }
+
+        .producto img {
+            max-width: 100%; /* Imagen ajustada al contenedor */
+            border: none; /* Sin borde */
+        }
+
+        .comprar {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #80c683;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .comprar:hover {
+            background-color: #67b46f;
+        }
+
+        .social-icons {
+            display: flex; /* Usa flexbox para alinear los iconos */
+            justify-content: center; /* Centra los iconos */
+            margin-top: 8px; /* Espacio entre el texto y los iconos */
+        }
+
+        .social-logo {
+            height: 1.5cm; /* Altura de los logos */
+            width: auto; /* Ancho automático para mantener la proporción */
+            margin: 0 1.0cm; /* Separación de 3cm entre los logos */
+        }
+
+        .sadecv-img {
+            width: 50%; /* Tamaño */
+            height: auto; /* Mantiene la relación de aspecto */
+            display: block; /* Para centrar la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="./media/fondo.png" alt="Imagen FONDO" class="fondo" />
+    </div>
+    <div class="content">
+        <div class="eslogan">
+            <img src="./media/eslogan.jpg" alt="eslogan" class="eslogan-img" />
+        </div>
+        <div class="quienes-somos">
+            <h1>¿Quiénes Somos?</h1>
+            <h3>Somos una empresa comprometida con el aprovechamiento integral de la sábila (Aloe vera), una planta reconocida por sus múltiples beneficios para la salud, el cuidado personal y el medio ambiente. 
+              Nuestra misión es transformar este recurso natural en productos innovadores, sostenibles y de alta calidad que respondan a las tendencias del mercado actual.</h3>
+              <img src="./media/aloe.png" alt="Descripción de la imagen" class="imagen-centrada" />
+              <div class="sector-clave">
+                <img src="./media/sab.webp" alt="Imagen de Sábila" class="imagen-sector" />
+                <div class="texto-sector">
+                    <h2>Nos desenvolvemos en tres sectores clave:</h2>
+                    <ul>
+                        <li>Agroindustria y fertilizantes orgánicos</li>
+                        <li>Bebidas alcohólicas artesanales</li>
+                        <li>Cosmética natural</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="carrusel">
+                <div class="carrusel-imagen">
+                    <img src="./media/fertilizantepng.png" alt="Aloe Ardiente" />
+                </div>
+                <div class="carrusel-imagen">
+                    <img src="./media/mascarillapng.png" alt="Mascarilla Exfoliante" />
+                </div>
+                <div class="carrusel-imagen">
+                    <img src="./media/aloeard.png" alt="Aloe Ardiente" />
+                </div>
+                <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
+                <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
+            </div>
+        </div>
+        <div class="productos">
+            <h1>Nuestros Productos</h1>
+            <div class="productos-container">
+                <div class="producto">
+                    <img src="./media/masc.jpg" alt="Producto 1" />
+                    <h3>Mascarilla Exfoliante Suavecita</h3>
+                    <h5>Elaborada con borra de café y sábila fresca, exfolia suavemente y elimina impurezas mientras hidrata. Su textura cremosa y el aroma a coco y almendras transforman tu rutina de cuidado en un placer.</h5>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSexhvnArqVLDn5bDgeU1nZIv0Hb98nCp88vjqRAJcG6_Vdu4g/viewform?usp=header" class="comprar">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="./media/licor.jpg" alt="Producto 2" />
+                    <h3>Aloe Ardiente</h3>
+                    <h5>Un licor que combina el sabor del agave, la suavidad de la pulpa de sábila y un toque de tamarindo. Con un perfil fresco y notas ácidas y dulces, es perfecto para cócteles, tragos en las rocas o compartir en buena compañía.</h5>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSexhvnArqVLDn5bDgeU1nZIv0Hb98nCp88vjqRAJcG6_Vdu4g/viewform?usp=header" class="comprar">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="./media/fert.jpg" alt="Producto 3" />
+                    <h3>Forti-Vera</h3>
+                    <h5>Fertilizante 100% orgánico para agricultores conscientes, elaborado con cáscaras de sábila, ajo, cebolla y borra de café. Enriqueciendo el suelo y aportando nitrógeno, actúa como antifúngico natural para mejorar el rendimiento de las plantas y cuidar el medio ambiente.</h5>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSexhvnArqVLDn5bDgeU1nZIv0Hb98nCp88vjqRAJcG6_Vdu4g/viewform?usp=header" class="comprar">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+
+      <h3>Contactanos pos nuestras redes sociales.</h3>
+      <div class="social-icons">
+          <a href="https://www.facebook.com/share/16RMdRcqFU/" target="_blank">
+              <img src="./media/feis.webp" alt="Facebook Logo" class="social-logo" />
+          </a>
+          <a href="https://chat.whatsapp.com/EJArkfX6bsg7NFVcvHPl3q" target="_blank">
+              <img src="./media/wss.png" alt="WhatsApp Logo" class="social-logo" />
+          </a>
+      </div>
+  
+      <div class="content">
+          <div class="sadcv">
+              <img src="./media/sadecv.png" alt="eslogan" class="sadecv-img" />
+          </div>
+      </div>
+  </footer>
+
+    <script>
+        window.onscroll = function() {
+            const header = document.querySelector('.header');
+            header.style.transform = 'translateY(-' + window.scrollY + 'px)';
+        };
+
+        let indice = 0;
+        mostrarImagen(indice);
+
+        function cambiarImagen(n) {
+            mostrarImagen(indice += n);
+        }
+
+        function mostrarImagen(n) {
+            const imagenes = document.getElementsByClassName("carrusel-imagen");
+            if (n >= imagenes.length) {
+                indice = 0;
+            }
+            if (n < 0) {
+                indice = imagenes.length - 1;
+            }
+            for (let i = 0; i < imagenes.length; i++) {
+                imagenes[i].style.display = "none"; // Oculta todas las imágenes
+            }
+            imagenes[indice].style.display = "flex"; // Muestra la imagen actual
+        }
+    </script>
+</body>
+</html>
